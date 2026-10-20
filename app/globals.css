@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Brand Colors matching Laravel app */
+    --brand: #0d9488;
+    --brand-dark: #0f766e;
+    --color-primary: #0d9488;
+    --color-primary-dark: #0f766e;
+    --color-primary-light: #14b8a6;
+    --color-primary-50: #f0fdfa;
+    --color-primary-100: #ccfbf1;
+
+    /* Layout */
+    --color-bg: #f3f4f6;
+    --color-surface: #ffffff;
+    --color-surface-2: #f9fafb;
+    --color-sidebar: #ffffff;
+    --color-sidebar-border: #e5e7eb;
+    --color-topbar: #ffffff;
+
+    /* Text */
+    --color-text: #1f2937;
+    --color-text-secondary: #4b5563;
+    --color-text-muted: #9ca3af;
+
+    /* Border */
+    --color-border: #e5e7eb;
+    --color-border-light: #f3f4f6;
+
+    /* Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-info: #3b82f6;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
+  }
+
+  .bg-brand { background-color: var(--brand); }
+  .bg-brand-dark { background-color: var(--brand-dark); }
+  .text-brand { color: var(--brand); }
+  .border-brand { border-color: var(--brand); }
+  .hover\:bg-brand-dark:hover { background-color: var(--brand-dark); }
+  .focus\:border-brand:focus { border-color: var(--brand) !important; }
+  .focus\:ring-brand:focus { --tw-ring-color: var(--brand) !important; ring-color: var(--brand) !important; }
+  .nav-active { background-color: rgba(13,148,136,.12); color: var(--brand-dark); font-weight: 600; }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-border-light);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  input, button, select, textarea {
+    font-family: inherit;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out both;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out both;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
