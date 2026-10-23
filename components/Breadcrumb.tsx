@@ -7,10 +7,10 @@ export interface BreadcrumbItem {
   href?: string
 }
 
-export function Breadcrumb({ items = [] }: { items?: BreadcrumbItem[] }) {
+export function Breadcrumb({ items = [], baseHref = '/dashboard/admin' }: { items?: BreadcrumbItem[]; baseHref?: string }) {
   return (
     <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-3" aria-label="Breadcrumb">
-      <Link href="/dashboard/admin" className="hover:text-brand">
+      <Link href={baseHref} className="hover:text-brand">
         Beranda
       </Link>
       {items.map((item, idx) => (
